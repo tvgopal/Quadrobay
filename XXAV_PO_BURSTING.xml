@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xapi:requestset xmlns:xapi="http://xmlns.oracle.com/oxp/xapi" type="bursting">
+<xapi:request select="POXPRPOP2/LIST_G_INIT_INFO/G_INIT_INFO">
+<xapi:delivery>
+<xapi:email id="123" server="XXXX" port="25" from=" XXXX">
+<xapi:message id="123" to ="${C_VEN_CONTACT_EMAIL}" attachment="true" subject=""> 
+Dear Customer,
+
+Type the message to be sent to the supplier.
+
+</xapi:message>
+</xapi:email>
+</xapi:delivery>
+<xapi:document output-type="pdf" delivery="123">
+<xapi:template type="rtf" location="xdo://PO.XXAVPOXPRPOP.en.00/?getSource=true" filter="POXPRPOP2/LIST_G_INIT_INFO/G_INIT_INFO/LIST_G_HEADERS/C_VEN_CONTACT_EMAIL!=''">
+</xapi:template>
+</xapi:document>
+</xapi:request>
+</xapi:requestset>
